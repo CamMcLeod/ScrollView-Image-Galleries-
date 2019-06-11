@@ -12,7 +12,7 @@
 
 @property (weak, nonatomic) IBOutlet UIScrollView *detailScrollView;
 
-@property (weak, nonatomic) IBOutlet UIImageView *detailImageView;
+@property (weak, nonatomic) UIImage *currentImage;
 
 @end
 
@@ -27,15 +27,14 @@
     self.detailScrollView.delegate = self;
     [self.view addSubview:self.detailScrollView];
 
-    self.detailScrollView.maximumZoomScale = 2.0;
-    self.detailScrollView.minimumZoomScale = 0.25;
+    self.detailScrollView.maximumZoomScale = 5.0;
+    self.detailScrollView.minimumZoomScale = 1.0;
 
     self.detailImageView.contentMode = UIViewContentModeScaleAspectFit;
-
+    [self.detailImageView setImage: self.currentImage];
    [self.detailScrollView addSubview:self.detailImageView];
     
 }
-
 /*
 #pragma mark - Navigation
 
@@ -46,7 +45,10 @@
 }
 */
 
-
+-(void)inheritDetailImageView: (UIImageView *) sentView {
+    self.currentImage = sentView.image;
+    
+}
 
 - (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView {
 

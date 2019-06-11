@@ -18,6 +18,7 @@
     UIImageView *firstImageView;
     UIImageView *secondImageView;
     UIImageView *thirdImageView;
+    UIImageView *tappedImageView;
 }
 
 - (void)viewDidLoad {
@@ -44,16 +45,16 @@
     secondImageView.contentMode = UIViewContentModeScaleAspectFit;
     thirdImageView.contentMode = UIViewContentModeScaleAspectFit;
     
-    firstImageView.frame = CGRectMake(firstImageView.frame.origin.x, firstImageView.frame.origin.y, 200, firstImageView.frame.size.height);
-    secondImageView.frame = CGRectMake(secondImageView.frame.origin.x, secondImageView.frame.origin.y, 200, secondImageView.frame.size.height);
-    thirdImageView.frame = CGRectMake(thirdImageView.frame.origin.x, thirdImageView.frame.origin.y,200, thirdImageView.frame.size.height);
+    firstImageView.frame = CGRectMake(firstImageView.frame.origin.x, firstImageView.frame.origin.y+200, 400, 400);
+    secondImageView.frame = CGRectMake(secondImageView.frame.origin.x, secondImageView.frame.origin.y+200, 400, 400);
+    thirdImageView.frame = CGRectMake(thirdImageView.frame.origin.x, thirdImageView.frame.origin.y+200,400, 400);
     CGFloat startingPointOfX = 0;
     
     firstImageView.frame = CGRectOffset(firstImageView.frame,startingPointOfX, 0);
     startingPointOfX += firstImageView.frame.size.width;
-    secondImageView.frame = CGRectOffset(secondImageView.frame,startingPointOfX, 0);
-    startingPointOfX += secondImageView.frame.size.width;
-    thirdImageView.frame = CGRectOffset(thirdImageView.frame,startingPointOfX, 0);
+    secondImageView.frame = CGRectOffset(secondImageView.frame,startingPointOfX+20, 0);
+    startingPointOfX += secondImageView.frame.size.width+20;
+    thirdImageView.frame = CGRectOffset(thirdImageView.frame,startingPointOfX+20, 0);
     startingPointOfX += thirdImageView.frame.size.width;
     
     self.scrollView.contentSize = CGSizeMake(startingPointOfX, CGRectGetHeight(self.scrollView.frame));
@@ -64,7 +65,7 @@
                                                                                        relatedBy:NSLayoutRelationEqual
                                                                                           toItem:self.scrollView
                                                                                        attribute:NSLayoutAttributeCenterY
-                                                                                      multiplier:1.0
+                                                                                      multiplier:1.2
                                                                                         constant:0.0];
     firstImageViewCenterYConstraint.active = YES;
     
@@ -73,7 +74,7 @@
                                                                                         relatedBy:NSLayoutRelationEqual
                                                                                            toItem:self.scrollView
                                                                                         attribute:NSLayoutAttributeCenterY
-                                                                                       multiplier:1.0
+                                                                                       multiplier:1.2
                                                                                          constant:0.0];
     secondImageViewCenterYConstraint.active = YES;
     
@@ -82,7 +83,7 @@
                                                                                        relatedBy:NSLayoutRelationEqual
                                                                                           toItem:self.scrollView
                                                                                        attribute:NSLayoutAttributeCenterY
-                                                                                      multiplier:1.0
+                                                                                      multiplier:1.2
                                                                                         constant:0.0];
     thirdImageViewCenterYConstraint.active = YES;
     
@@ -94,15 +95,26 @@
 
 -(void)tapToDetailView: (UITapGestureRecognizer *)tapGesture {
     
-    UIImageView *tappedImageView;
     CGPoint tapLocation = [tapGesture locationInView:self.scrollView];
     
     for (UIImageView *imageView in self.scrollView.subviews) {
         if (CGRectContainsPoint(imageView.frame, tapLocation)) {
-            tappedImageView = imageView;
+            [self performSegueWithIdentifier:@"showDetailSegue" sender:imageView];
         }
     }
     
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(UIImageView *)sender
+{
+    if ([[segue identifier] isEqualToString:@"showDetailSegue"]) {
+        
+        if ([segue.destinationViewController respondsToSelector:@selector(inheritDetailImageView:)]) {
+            [segue.destinationViewController performSelector:@selector(inheritDetailImageView:)
+                                                  withObject:sender];
+        }
+    }
     
 }
+
 @end
