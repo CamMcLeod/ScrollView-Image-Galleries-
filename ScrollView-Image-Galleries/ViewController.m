@@ -11,6 +11,7 @@
 @interface ViewController () < UIScrollViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+@property (weak, nonatomic) IBOutlet UIPageControl *pageControl;
 
 @end
 
@@ -44,10 +45,10 @@
     firstImageView.contentMode = UIViewContentModeScaleAspectFit;
     secondImageView.contentMode = UIViewContentModeScaleAspectFit;
     thirdImageView.contentMode = UIViewContentModeScaleAspectFit;
-    
-    firstImageView.frame = CGRectMake(firstImageView.frame.origin.x, firstImageView.frame.origin.y+200, 400, 400);
-    secondImageView.frame = CGRectMake(secondImageView.frame.origin.x, secondImageView.frame.origin.y+200, 400, 400);
-    thirdImageView.frame = CGRectMake(thirdImageView.frame.origin.x, thirdImageView.frame.origin.y+200,400, 400);
+
+    firstImageView.frame = CGRectMake(firstImageView.frame.origin.x, firstImageView.frame.origin.y+200, self.view.frame.size.width, 400);
+    secondImageView.frame = CGRectMake(secondImageView.frame.origin.x, secondImageView.frame.origin.y+200, self.view.frame.size.width, 400);
+    thirdImageView.frame = CGRectMake(thirdImageView.frame.origin.x, thirdImageView.frame.origin.y+200,self.view.frame.size.width, 400);
     CGFloat startingPointOfX = 0;
     
     firstImageView.frame = CGRectOffset(firstImageView.frame,startingPointOfX, 0);
@@ -103,6 +104,26 @@
         }
     }
     
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    NSLog(@"%f", firstImageView.center.x);
+    NSLog(@"%f", secondImageView.center.x);
+    NSLog(@"%f", thirdImageView.center.x);
+
+    CGFloat distanceToFirst = ABS(self.scrollView.contentOffset.x + (self.view.frame.size.width / 2) - firstImageView.center.x);
+    CGFloat distanceToSecond = ABS(self.scrollView.contentOffset.x + (self.view.frame.size.width / 2) - secondImageView.center.x);
+    CGFloat distanceToThird = ABS(self.scrollView.contentOffset.x + (self.view.frame.size.width / 2) - thirdImageView.center.x);
+    
+    
+    if( distanceToFirst < distanceToSecond){
+        [self.pageControl setCurrentPage:0];
+    } else if (distanceToSecond < distanceToThird){
+        [self.pageControl setCurrentPage:1];
+    } else {
+        [self.pageControl setCurrentPage:2];
+    }
+    [self.view bringSubviewToFront:self.pageControl];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(UIImageView *)sender
