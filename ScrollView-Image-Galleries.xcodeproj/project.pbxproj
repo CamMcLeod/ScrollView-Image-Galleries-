@@ -15,6 +15,7 @@
 		627EE15222AF287E00CC588B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 627EE15122AF287E00CC588B /* main.m */; };
 		627EE15C22AF287E00CC588B /* ScrollView_Image_GalleriesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 627EE15B22AF287E00CC588B /* ScrollView_Image_GalleriesTests.m */; };
 		627EE16722AF287E00CC588B /* ScrollView_Image_GalleriesUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 627EE16622AF287E00CC588B /* ScrollView_Image_GalleriesUITests.m */; };
+		627EE17522AF293100CC588B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 627EE17422AF293100CC588B /* Images.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		627EE16222AF287E00CC588B /* ScrollView-Image-GalleriesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ScrollView-Image-GalleriesUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		627EE16622AF287E00CC588B /* ScrollView_Image_GalleriesUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScrollView_Image_GalleriesUITests.m; sourceTree = "<group>"; };
 		627EE16822AF287E00CC588B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		627EE17422AF293100CC588B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +109,7 @@
 				627EE14622AF287D00CC588B /* ViewController.m */,
 				627EE14822AF287D00CC588B /* Main.storyboard */,
 				627EE14B22AF287E00CC588B /* Assets.xcassets */,
+				627EE17422AF293100CC588B /* Images.xcassets */,
 				627EE14D22AF287E00CC588B /* LaunchScreen.storyboard */,
 				627EE15022AF287E00CC588B /* Info.plist */,
 				627EE15122AF287E00CC588B /* main.m */,
@@ -236,6 +239,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				627EE14F22AF287E00CC588B /* LaunchScreen.storyboard in Resources */,
+				627EE17522AF293100CC588B /* Images.xcassets in Resources */,
 				627EE14C22AF287E00CC588B /* Assets.xcassets in Resources */,
 				627EE14A22AF287D00CC588B /* Main.storyboard in Resources */,
 			);
