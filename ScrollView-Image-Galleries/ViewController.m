@@ -14,7 +14,11 @@
 
 @end
 
-@implementation ViewController
+@implementation ViewController {
+    UIImageView *firstImageView;
+    UIImageView *secondImageView;
+    UIImageView *thirdImageView;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -26,11 +30,11 @@
     self.scrollView.delegate = self;
     [self.view addSubview:self.scrollView];
     
-    UIImageView *firstImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed: @"Lighthouse-in-Field"]];
+    firstImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed: @"Lighthouse-in-Field"]];
 
-    UIImageView *secondImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed: @"Lighthouse-night"]];
+    secondImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed: @"Lighthouse-night"]];
 
-    UIImageView *thirdImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed: @"Lighthouse-zoomed"]];
+    thirdImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed: @"Lighthouse-zoomed"]];
     
         [self.scrollView addSubview:firstImageView];
         [self.scrollView addSubview:secondImageView];
@@ -81,20 +85,24 @@
                                                                                       multiplier:1.0
                                                                                         constant:0.0];
     thirdImageViewCenterYConstraint.active = YES;
+    
+    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapToDetailView:)];
+    
+    [self.scrollView addGestureRecognizer:tapGesture];
+
 }
 
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-//    con
-//    [self.scrollView scrollRectToVisible: animated:YES];
+-(void)tapToDetailView: (UITapGestureRecognizer *)tapGesture {
+    
+    UIImageView *tappedImageView;
+    CGPoint tapLocation = [tapGesture locationInView:self.scrollView];
+    
+    for (UIImageView *imageView in self.scrollView.subviews) {
+        if (CGRectContainsPoint(imageView.frame, tapLocation)) {
+            tappedImageView = imageView;
+        }
+    }
+    
     
 }
-
-//- (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView {
-//
-//}
-//
-//- (void)scrollViewDidEndZooming:(UIScrollView *)scrollView withView:(UIView *)view atScale:(CGFloat)scale {
-//
-//}
-//
 @end
