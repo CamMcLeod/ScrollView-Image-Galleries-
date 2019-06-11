@@ -25,8 +25,6 @@
 
     self.scrollView.delegate = self;
     [self.view addSubview:self.scrollView];
-    self.scrollView.maximumZoomScale = 1.0;
-    self.scrollView.minimumZoomScale = 0.5;
     
     UIImageView *firstImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed: @"Lighthouse-in-Field"]];
 
@@ -41,7 +39,10 @@
     firstImageView.contentMode = UIViewContentModeScaleAspectFit;
     secondImageView.contentMode = UIViewContentModeScaleAspectFit;
     thirdImageView.contentMode = UIViewContentModeScaleAspectFit;
-
+    
+    firstImageView.frame = CGRectMake(firstImageView.frame.origin.x, firstImageView.frame.origin.y, 200, firstImageView.frame.size.height);
+    secondImageView.frame = CGRectMake(secondImageView.frame.origin.x, secondImageView.frame.origin.y, 200, secondImageView.frame.size.height);
+    thirdImageView.frame = CGRectMake(thirdImageView.frame.origin.x, thirdImageView.frame.origin.y,200, thirdImageView.frame.size.height);
     CGFloat startingPointOfX = 0;
     
     firstImageView.frame = CGRectOffset(firstImageView.frame,startingPointOfX, 0);

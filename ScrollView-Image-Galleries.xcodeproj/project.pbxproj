@@ -16,6 +16,7 @@
 		627EE15C22AF287E00CC588B /* ScrollView_Image_GalleriesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 627EE15B22AF287E00CC588B /* ScrollView_Image_GalleriesTests.m */; };
 		627EE16722AF287E00CC588B /* ScrollView_Image_GalleriesUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 627EE16622AF287E00CC588B /* ScrollView_Image_GalleriesUITests.m */; };
 		627EE17522AF293100CC588B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 627EE17422AF293100CC588B /* Images.xcassets */; };
+		627EE17822AF508700CC588B /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 627EE17722AF508700CC588B /* DetailViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,8 @@
 		627EE16622AF287E00CC588B /* ScrollView_Image_GalleriesUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScrollView_Image_GalleriesUITests.m; sourceTree = "<group>"; };
 		627EE16822AF287E00CC588B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		627EE17422AF293100CC588B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		627EE17622AF508700CC588B /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		627EE17722AF508700CC588B /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +111,8 @@
 				627EE14522AF287D00CC588B /* ViewController.h */,
 				627EE14622AF287D00CC588B /* ViewController.m */,
 				627EE14822AF287D00CC588B /* Main.storyboard */,
+				627EE17622AF508700CC588B /* DetailViewController.h */,
+				627EE17722AF508700CC588B /* DetailViewController.m */,
 				627EE14B22AF287E00CC588B /* Assets.xcassets */,
 				627EE17422AF293100CC588B /* Images.xcassets */,
 				627EE14D22AF287E00CC588B /* LaunchScreen.storyboard */,
@@ -269,6 +274,7 @@
 				627EE14722AF287D00CC588B /* ViewController.m in Sources */,
 				627EE15222AF287E00CC588B /* main.m in Sources */,
 				627EE14422AF287D00CC588B /* AppDelegate.m in Sources */,
+				627EE17822AF508700CC588B /* DetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

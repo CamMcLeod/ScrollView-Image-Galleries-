@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="T8C-55-r2A">
     <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,6 +10,49 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Detail View Controller-->
+        <scene sceneID="uYU-hV-veS">
+            <objects>
+                <viewController id="T8C-55-r2A" customClass="DetailViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ZSR-Jd-Rcb">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bqb-yK-Dkb">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Lighthouse-in-Field" translatesAutoresizingMaskIntoConstraints="NO" id="gNs-Xd-A0x">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                    </imageView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="gNs-Xd-A0x" firstAttribute="centerY" secondItem="Bqb-yK-Dkb" secondAttribute="centerY" id="QK2-BU-Gac"/>
+                                    <constraint firstItem="gNs-Xd-A0x" firstAttribute="centerX" secondItem="Bqb-yK-Dkb" secondAttribute="centerX" id="RlZ-nE-Am6"/>
+                                    <constraint firstAttribute="bottom" secondItem="gNs-Xd-A0x" secondAttribute="bottom" id="kS3-t2-HM3"/>
+                                    <constraint firstAttribute="trailing" secondItem="gNs-Xd-A0x" secondAttribute="trailing" id="sNW-AJ-74r"/>
+                                    <constraint firstItem="gNs-Xd-A0x" firstAttribute="top" secondItem="Bqb-yK-Dkb" secondAttribute="top" id="zNi-Cx-cEq"/>
+                                    <constraint firstItem="gNs-Xd-A0x" firstAttribute="leading" secondItem="Bqb-yK-Dkb" secondAttribute="leading" id="zat-My-pbL"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Bqb-yK-Dkb" firstAttribute="top" secondItem="ZSR-Jd-Rcb" secondAttribute="top" id="GpO-3n-EUX"/>
+                            <constraint firstAttribute="trailing" secondItem="Bqb-yK-Dkb" secondAttribute="trailing" id="MM5-0J-Qum"/>
+                            <constraint firstItem="Bqb-yK-Dkb" firstAttribute="leading" secondItem="ZSR-Jd-Rcb" secondAttribute="leading" id="TPH-e5-xVh"/>
+                            <constraint firstAttribute="bottom" secondItem="Bqb-yK-Dkb" secondAttribute="bottom" id="cmE-ht-6NJ"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="QDo-m1-Wmo"/>
+                    </view>
+                    <connections>
+                        <outlet property="detailImageView" destination="gNs-Xd-A0x" id="PGb-aa-qob"/>
+                        <outlet property="detailScrollView" destination="Bqb-yK-Dkb" id="2bE-Ka-CoQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lAr-5R-j2t" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-733.33333333333337" y="113.83928571428571"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -24,10 +67,12 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="oFo-TC-6dp" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="0ja-1Z-tPC"/>
                             <constraint firstAttribute="bottom" secondItem="oFo-TC-6dp" secondAttribute="bottom" id="ElA-cu-UE5"/>
                             <constraint firstItem="oFo-TC-6dp" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="O0g-tL-zlE"/>
                             <constraint firstItem="oFo-TC-6dp" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="b2d-9i-XrC"/>
                             <constraint firstAttribute="trailing" secondItem="oFo-TC-6dp" secondAttribute="trailing" id="dCn-th-74W"/>
+                            <constraint firstItem="oFo-TC-6dp" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="dV3-F4-A3v"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -40,4 +85,7 @@
             <point key="canvasLocation" x="137.68115942028987" y="113.83928571428571"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Lighthouse-in-Field" width="960" height="540"/>
+    </resources>
 </document>
